@@ -24,7 +24,7 @@ public class ReadTime {
             System.out.println("Current time: " + Calendar.getInstance().getTime());
         }
 
+        fis.close();
         in.close();
-
     }
 }

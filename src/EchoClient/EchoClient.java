@@ -41,15 +41,15 @@ public class EchoClient {
                 if (userInput.equals("Bye.")) {
                     out.println(userInput);
                     break;
-                }
-                if (userInput.equals("/time")) {
+                } else if (userInput.equals("/time")) {
                     WriteTime writeTime = new WriteTime();
                     writeTime.write(new String[0]);
                     out.println(userInput);
+                    System.out.println("echo: " + in.readLine());
+                } else {
+                    out.println(userInput);
+                    System.out.println("echo: " + in.readLine());
                 }
-
-                out.println(userInput);
-                System.out.println("echo: " + in.readLine());
             }
             out.close();
             in.close();
