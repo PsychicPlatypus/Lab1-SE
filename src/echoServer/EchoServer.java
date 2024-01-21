@@ -15,17 +15,16 @@ public class EchoServer {
         ServerSocket serverSocket;
         try {
             serverSocket = new ServerSocket(1234);
-            Socket clientSocket;
-            clientSocket = serverSocket.accept();
-            PrintWriter outputPrintWriter;
-            BufferedReader in;
-            outputPrintWriter = new PrintWriter(
+
+            Socket clientSocket = serverSocket.accept();
+            PrintWriter outputPrintWriter = new PrintWriter(
                     clientSocket.getOutputStream(), true);
-            in = new BufferedReader(
+
+            BufferedReader in = new BufferedReader(
                     new InputStreamReader(
                             clientSocket.getInputStream()));
 
-            String inputLine, outputLine;
+            String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 outputPrintWriter.println(inputLine);
                 if (inputLine.equals("Bye."))
@@ -39,4 +38,3 @@ public class EchoServer {
         }
     }
 }
-

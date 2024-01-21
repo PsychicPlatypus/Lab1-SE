@@ -4,12 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class EchoClient {
-    public EchoClient() {
+    private String server;
+    private Integer port;
+
+    public EchoClient(String server, Integer port) {
+        this.server = server;
+        this.port = port;
     }
 
     public void establish() {
@@ -17,7 +21,7 @@ public class EchoClient {
         PrintWriter out = null;
         BufferedReader in = null;
         try {
-            echoSocket = new Socket(InetAddress.getLocalHost(), 1234);
+            echoSocket = new Socket(this.server, this.port);
             out = new PrintWriter(echoSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(
                     echoSocket.getInputStream()));
@@ -28,8 +32,7 @@ public class EchoClient {
             System.err.println("Couldn't get I/O");
             System.exit(1);
         }
-        BufferedReader stdIn = new BufferedReader(new
-                InputStreamReader(System.in));
+        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
         String userInput;
 
         try {
