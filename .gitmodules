@@ -1,3 +1,6 @@
 [submodule "Lab1-SE-Task1"]
 	path = Lab1-SE-Task1
 	url = https://github.com/PsychicPlatypus/Lab1-SE-Task1.git
+[submodule "Lab1-SE-Task2"]
+	path = Lab1-SE-Task2
+	url = https://github.com/PsychicPlatypus/Lab1-SE-Task2.git
